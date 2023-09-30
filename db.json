@@ -1,25 +1,29 @@
 {
-  "posts": [
+  "todos": [
     {
-      "id": 1,
-      "title": "json-server"
+      "id": 1752,
+      "title": "inprog",
+      "status": "inProgress"
     },
     {
-      "id": 1,
-      "title": "json-server"
+      "id": 1785,
+      "title": "done",
+      "status": "done"
     },
     {
-      "id": 1,
-      "title": "json-server"
+      "id": 751,
+      "title": "ope",
+      "status": "open"
     },
     {
-      "id": 1,
-      "title": "json-server"
+      "id": 46,
+      "title": "ok",
+      "status": "open"
     },
     {
       "id": 34,
-      "title": "jfl3hfl",
-      "author": "lfk3rkj"
+      "title": "ok",
+      "status": "open"
     }
   ]
 }
