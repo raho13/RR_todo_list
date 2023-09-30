@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="src/css/style.css" />
   </head>
   <body>
-    <h1>ToDo List by RR</h1>
+    <h1 onclick="DeleteData()">ToDo List by RR</h1>
     <div class="container">
       <form class="todo-form">
-        <input class="todo-form__input" type="text" id="inputValue"/>
+        <input class="todo-form__input" type="text" id="inputValue" autofocus />
         <button type="submit" onclick="PostData()">Add</button>
         <p class="todo-form__error">Already exist</p>
       </form>
