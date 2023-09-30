@@ -1,34 +1,5 @@
 {
   "todos": [
-    {
-      "id": 2,
-      "title": "grt",
-      "status": "open"
-    },
-    {
-      "status": "inProgress",
-      "id": 73,
-      "title": "sd"
-    },
-    {
-      "status": "inProgress",
-      "id": 39,
-      "title": "sd"
-    },
-    {
-      "status": "inProgress",
-      "id": 3,
-      "title": "trtrt"
-    },
-    {
-      "status": "open",
-      "id": 88,
-      "title": "golherigioerhng"
-    },
-    {
-      "status": "done",
-      "id": 48,
-      "title": "salam aleykum"
-    }
+    
   ]
 }
