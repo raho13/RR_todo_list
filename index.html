@@ -7,11 +7,12 @@
     <link rel="stylesheet" href="src/style/style.css" />
   </head>
   <body>
+    <h1>ToDo List by RR</h1>
     <div class="container">
       <form class="todo-form">
         <input class="todo-form__input" type="text" />
-        <button type="submit">add project</button>
-        <p class="todo-form__error">project already exist howbow dah</p>
+        <button type="submit">Add</button>
+        <p class="todo-form__error">Already exist</p>
       </form>
       <svg
         class="trash"
@@ -51,27 +52,27 @@
             <span class="todo-project__total-title"></span>
           </div>
         </div>
-        <ul class="todo-project__list"></ul>
+        <ol class="todo-project__list"></ol>
       </div>
       <div class="todo-project">
         <div class="todo-project__header">
           <p class="todo-project__title">In Progress</p>
-          <div class="todo-project__total">
+          <div class="todo-project__total in-progress">
             <p class="todo-project__total-value"></p>
             <span class="todo-project__total-title"></span>
           </div>
         </div>
-        <ul class="todo-project__list"></ul>
+        <ol class="todo-project__list progress-list"></ol>
       </div>
       <div class="todo-project">
         <div class="todo-project__header">
           <p class="todo-project__title">Done</p>
-          <div class="todo-project__total">
+          <div class="todo-project__total is-done">
             <p class="todo-project__total-value"></p>
             <span class="todo-project__total-title"></span>
           </div>
         </div>
-        <ul class="todo-project__list"></ul>
+        <ol class="todo-project__list done-list"></ol>
       </div>
     </div>
     <button id="myBTN">ok</button>
