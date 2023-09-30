@@ -8,7 +8,6 @@ let jsonData = [];
 
 const PostData = () => {
   const inputValue = document.getElementById("inputValue").value;
-  console.log(data.open.includes(inputValue));
   fetch("http://localhost:3000/todos", {
     method: "POST",
     headers: {
@@ -133,7 +132,6 @@ document.querySelector(".todo-form").addEventListener("submit", function (e) {
   var input, val, allProj, i, proj, err;
   input = document.querySelector(".todo-form__input");
   val = input.value.trim();
-  // if (!val.length) return (input.value = "");
   allProj = document.querySelectorAll(".todo-project__item");
   for (i = allProj.length; i--; ) {
     if (val.toUpperCase() === allProj[i].innerHTML.toUpperCase()) {
@@ -335,7 +333,6 @@ var DragManager = new (function () {
         });
       }
     }
-    // DeleteData(Number());
   }
 
   function addData() {
