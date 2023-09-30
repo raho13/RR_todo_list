@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 body {
@@ -53,7 +54,7 @@ h1 {
 }
 .todo-form button:hover {
   background-color: rgb(11, 188, 11);
-  transform: rotate(360deg);
+  transform: scale(1.1);
 }
 .todo-form__input {
   width: 300px;
@@ -120,7 +121,7 @@ h1 {
 }
 .todo-project ol {
   height: 400px;
-  padding: 15px 0 15px 40px;
+  padding: 5px 5px;
   border: 2px solid purple;
   border-radius: 0 0 10px 10px;
   box-shadow: inset 1px 1px 2px 1px rgba(0, 0, 0, 0.5);
@@ -141,10 +142,11 @@ h1 {
 }
 .todo-project__list {
   padding-bottom: 70px;
+  list-style: none;
 }
 .todo-project__item {
   border-top: 2px solid transparent;
-  font-size: 17px;
+  font-size: 20px;
   font-weight: bold;
   background-clip: padding-box;
   word-wrap: break-word;
@@ -152,6 +154,9 @@ h1 {
   -ms-touch-action: none;
   -webkit-touch-callout: none;
   touch-action: none;
+  background-color: #a09d9d;
+  padding: 10px;
+  border-radius: 8px;
 }
 
 .in-progress {
@@ -160,6 +165,10 @@ h1 {
 
 .is-done {
   background-color: green;
+}
+
+.todo-list {
+  color: white;
 }
 
 .done-list {

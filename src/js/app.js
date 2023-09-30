@@ -7,7 +7,7 @@ todos();
 let jsonData = [];
 updateNumbs();
 const PostData = () => {
-  
+  const inputValue = document.getElementById("inputValue").value
   console.log("first");
   fetch("http://localhost:3000/todos", {
     method: "POST",
@@ -15,8 +15,8 @@ const PostData = () => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      id: 34,
-      title: "ok",
+      id: Math.random(),
+      title: inputValue,
       status: "open",
     }),
   })
