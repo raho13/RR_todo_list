@@ -8,7 +8,9 @@ let jsonData = [];
 
 const PostData = () => {
   const inputValue = document.getElementById("inputValue").value;
-  console.log("first");
+  if(inputValue==="" || !data.includes(inputValue)){
+    return
+  }
   fetch("http://localhost:3000/todos", {
     method: "POST",
     headers: {
@@ -108,8 +110,8 @@ function updateNumbs() {
   total = document.querySelector(".todo__total-value").innerHTML =
     document.querySelectorAll(".todo-project__item").length;
   total === 1
-    ? (document.querySelector(".todo__total-title").innerHTML = "project")
-    : (document.querySelector(".todo__total-title").innerHTML = "projects");
+    ? (document.querySelector(".todo__total-title").innerHTML = "task")
+    : (document.querySelector(".todo__total-title").innerHTML = "tasks");
   list = document.querySelectorAll(".todo-project");
   for (i = 0; i < list.length; i++) {
     proj = list[i].getElementsByTagName("li").length;
@@ -121,11 +123,11 @@ function updateNumbs() {
         break;
       case 1:
         list[i].querySelector(".todo-project__total-title").innerHTML =
-          "project";
+          "task";
         break;
       default:
         list[i].querySelector(".todo-project__total-title").innerHTML =
-          "projects";
+          "tasks";
     }
   }
 }
@@ -135,7 +137,7 @@ document.querySelector(".todo-form").addEventListener("submit", function (e) {
   var input, val, allProj, i, proj, err;
   input = document.querySelector(".todo-form__input");
   val = input.value.trim();
-  if (!val.length) return (input.value = "");
+  // if (!val.length) return (input.value = "");
   allProj = document.querySelectorAll(".todo-project__item");
   for (i = allProj.length; i--; ) {
     if (val.toUpperCase() === allProj[i].innerHTML.toUpperCase()) {
@@ -157,7 +159,6 @@ document.querySelector(".todo-form").addEventListener("submit", function (e) {
   input.value = "";
   updateNumbs();
   data.todo.push(val);
-  localStorage.setItem("mytodo", JSON.stringify(data));
 });
 
 function getCoords(elem) {
@@ -354,7 +355,6 @@ var DragManager = new (function () {
       id: item.dataset.id,
       staus: key,
     });
-    console.log(key);
     UpdateData({
       title: item.innerHTML,
       id: item.dataset.id,

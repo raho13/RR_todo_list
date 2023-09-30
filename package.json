@@ -1,5 +1,5 @@
 {
-  "name": "task_chalennge",
+  "name": "todolist",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,6 +7,6 @@
     "start": "json-server --watch db.json"
   },
   "keywords": [],
-  "author": "",
+  "author": "RR",
   "license": "ISC"
 }
