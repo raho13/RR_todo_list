@@ -5,7 +5,7 @@ var data = {
 };
 todos();
 let jsonData = [];
-updateNumbs();
+
 const PostData = () => {
   const inputValue = document.getElementById("inputValue").value;
   console.log("first");
@@ -42,29 +42,46 @@ const FetchData = () => {
         }
       });
       todos();
+      updateNumbs();
     })
     .catch((err) => {
       console.log(err);
     });
 };
-const UpdateData = (newItem) => {
-  console.log("newwIem", newItem);
-  //   fetch(`http://localhost:3000/todos/${newItem.id}`, {
-  //     method: "PUT",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({
-  //       status: newItem.status,
-  //     }),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
+const UpdateData = ({ id, title, status }) => {
+  fetch(`http://localhost:3000/todos/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      status,
+      id,
+      title,
+    }),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+const DeleteData = (id) => {
+  fetch(`http://localhost:3000/todos/${id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 };
 
 FetchData();
@@ -204,7 +221,6 @@ var DragManager = new (function () {
     var dropElem = findDroppable(e);
     trash.style.fill = "#000";
     trash.style.transform = "scale(1)";
-
     elem.hidden = false;
     if (!dropElem) {
       if (def) {
@@ -241,7 +257,6 @@ var DragManager = new (function () {
   function createAvatar(e) {
     avatar = elem.cloneNode(true);
     avatar.classList.add("disabled");
-
     avatar.rollback = function () {
       var oldCoords = getCoords(dragObject.elem);
       avatar.style.transition = "all .3s";
@@ -271,7 +286,6 @@ var DragManager = new (function () {
     trash.style.fill = "#000";
     trash.style.transform = "scale(1)";
     document.body.style.cursor = "auto";
-
     removeData();
     if (!dropElem) {
       avatar.rollback();
@@ -285,6 +299,7 @@ var DragManager = new (function () {
       document.body.removeChild(avatar);
       if (dropElem === trash) {
         elem.parentNode.removeChild(elem);
+        DeleteData(Number(elem.dataset.id));
         return updateNumbs();
       }
       elem.classList.remove("disabled");
@@ -319,6 +334,7 @@ var DragManager = new (function () {
         });
       }
     }
+    // DeleteData(Number());
   }
 
   function addData() {
@@ -338,10 +354,11 @@ var DragManager = new (function () {
       id: item.dataset.id,
       staus: key,
     });
+    console.log(key);
     UpdateData({
       title: item.innerHTML,
       id: item.dataset.id,
-      staus: key,
+      status: key,
     });
   }
 
