@@ -7,7 +7,7 @@ todos();
 let jsonData = [];
 updateNumbs();
 const PostData = () => {
-  const inputValue = document.getElementById("inputValue").value
+  const inputValue = document.getElementById("inputValue").value;
   console.log("first");
   fetch("http://localhost:3000/todos", {
     method: "POST",
@@ -47,10 +47,29 @@ const FetchData = () => {
       console.log(err);
     });
 };
+const UpdateData = (newItem) => {
+  console.log("newwIem", newItem);
+  //   fetch(`http://localhost:3000/todos/${newItem.id}`, {
+  //     method: "PUT",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       status: newItem.status,
+  //     }),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       console.log(data);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+};
+
 FetchData();
 function todos() {
   var i, list, count, el, prop;
-  localStorage.setItem("mytodo", JSON.stringify(data));
   list = document.querySelectorAll(".todo-project__list");
   count = 0;
   for (prop in data) {
@@ -252,7 +271,7 @@ var DragManager = new (function () {
     trash.style.fill = "#000";
     trash.style.transform = "scale(1)";
     document.body.style.cursor = "auto";
-    console.log(data);
+
     removeData();
     if (!dropElem) {
       avatar.rollback();
@@ -319,7 +338,11 @@ var DragManager = new (function () {
       id: item.dataset.id,
       staus: key,
     });
-    //FetchData();
+    UpdateData({
+      title: item.innerHTML,
+      id: item.dataset.id,
+      staus: key,
+    });
   }
 
   document.ondragstart = function () {
