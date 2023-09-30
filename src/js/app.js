@@ -8,30 +8,25 @@ let jsonData = [];
 
 const PostData = () => {
   const inputValue = document.getElementById("inputValue").value;
-  if(inputValue!==data.open.includes(inputValue)){
-    return
-  }
-  else{
-    fetch("http://localhost:3000/todos", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        id:Math.floor(Math.random() * 100),
-        title: inputValue,
-        status: "open",
-      }),
+  console.log(data.open.includes(inputValue));
+  fetch("http://localhost:3000/todos", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      id: Math.floor(Math.random() * 100),
+      title: inputValue,
+      status: "open",
+    }),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
     })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
-  
+    .catch((err) => {
+      console.log(err);
+    });
 };
 const FetchData = () => {
   fetch("http://localhost:3000/todos")
@@ -125,12 +120,10 @@ function updateNumbs() {
           "not yet";
         break;
       case 1:
-        list[i].querySelector(".todo-project__total-title").innerHTML =
-          "task";
+        list[i].querySelector(".todo-project__total-title").innerHTML = "task";
         break;
       default:
-        list[i].querySelector(".todo-project__total-title").innerHTML =
-          "tasks";
+        list[i].querySelector(".todo-project__total-title").innerHTML = "tasks";
     }
   }
 }
@@ -155,6 +148,10 @@ document.querySelector(".todo-form").addEventListener("submit", function (e) {
       }, 1000);
     }
   }
+  if (!err) {
+    PostData();
+  }
+
   proj = document.createElement("li");
   proj.className = "todo-project__item";
   proj.innerHTML = val;
