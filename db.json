@@ -1,12 +1,7 @@
 {
   "todos": [
     {
-      "status": "done",
-      "id": 54,
-      "title": "asfsdaaf"
-    },
-    {
-      "status": "inProgress",
+      "status": "open",
       "id": 25,
       "title": "gfd"
     },
@@ -16,19 +11,24 @@
       "title": "dsgs"
     },
     {
-      "status": "open",
-      "id": 89,
-      "title": "sd"
+      "id": 27,
+      "title": "asfdgh",
+      "status": "open"
     },
     {
-      "status": "done",
-      "id": 74,
-      "title": "sd"
+      "id": 41,
+      "title": "xgdfh",
+      "status": "open"
     },
     {
-      "status": "done",
-      "id": 77,
-      "title": "dsgs"
+      "id": 47,
+      "title": "sdgzgfdhfjg",
+      "status": "open"
+    },
+    {
+      "id": 37,
+      "title": "sd",
+      "status": "open"
     }
   ]
 }

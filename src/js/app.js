@@ -8,27 +8,30 @@ let jsonData = [];
 
 const PostData = () => {
   const inputValue = document.getElementById("inputValue").value;
-  if(inputValue==="" || !data.includes(inputValue)){
+  if(inputValue!==data.open.includes(inputValue)){
     return
   }
-  fetch("http://localhost:3000/todos", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      id:Math.floor(Math.random() * 100),
-      title: inputValue,
-      status: "open",
-    }),
-  })
-    .then((res) => res.JSON())
-    .then((data) => {
-      console.log(data);
+  else{
+    fetch("http://localhost:3000/todos", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id:Math.floor(Math.random() * 100),
+        title: inputValue,
+        status: "open",
+      }),
     })
-    .catch((err) => {
-      console.log(err);
-    });
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+  
 };
 const FetchData = () => {
   fetch("http://localhost:3000/todos")
@@ -158,7 +161,7 @@ document.querySelector(".todo-form").addEventListener("submit", function (e) {
   document.querySelector(".todo-project__list").appendChild(proj);
   input.value = "";
   updateNumbs();
-  data.todo.push(val);
+  data.open.push(val);
 });
 
 function getCoords(elem) {
