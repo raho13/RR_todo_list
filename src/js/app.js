@@ -15,7 +15,7 @@ const PostData = () => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      id: Math.random(),
+      id:Math.floor(Math.random() * 100),
       title: inputValue,
       status: "open",
     }),
